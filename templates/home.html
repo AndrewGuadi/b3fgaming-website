@@ -1,82 +1,129 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
-{% block content %}
-<div class="home-page text-center">
-    <div class="hero-section">
-        <h1 class="display-4 animated-text">Welcome to b3fgaming</h1>
-        <p class="lead">The Ultimate Gaming Hub for Fortnite, Call of Duty, Helldivers, and More!</p>
-        <a href="#featured" class="btn btn-primary btn-lg mt-3">Explore Now</a>
-    </div>
 
-    <section id="featured" class="mt-5">
-        <h2 class="mb-4">Featured Games</h2>
+{% block head %}
+    <!-- AOS CSS for Animations on Scroll -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Custom Home CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center justify-content-center">
+    <div class="hero-content text-center" data-aos="fade-up">
+        <h1 class="hero-title">Welcome to <span>b3fgaming</span></h1>
+        <p class="hero-subtitle">The Ultimate Gaming Hub for Fortnite, Call of Duty, Helldivers, and More!</p>
+        <a href="#featured" class="btn btn-primary btn-lg">Explore Now</a>
+    </div>
+    <div class="hero-overlay"></div>
+    <canvas id="hero-canvas"></canvas>
+</section>
+
+<!-- Featured Games Section -->
+<section id="featured" class="featured-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Games</h2>
         <div class="row">
-            <!-- Example Game Card -->
-            <div class="col-md-4">
+            <!-- Fortnite Card -->
+            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card game-card">
-                    <img src="{{ url_for('static', filename='images/fortnite.jpg') }}" class="card-img-top" alt="Fortnite">
+                    <img src="{{ url_for('static', filename='images/fortnite.jpg') }}" class="card-img-top" alt="Fortnite Battle Royale Game">
                     <div class="card-body">
                         <h5 class="card-title">Fortnite</h5>
                         <p class="card-text">Dive into the battle royale frenzy and showcase your skills!</p>
-                        <a href="#" class="btn btn-secondary">Play Now</a>
+                        <a href="#" class="btn btn-outline-primary">Play Now</a>
                     </div>
                 </div>
             </div>
-            <!-- Repeat for other games -->
-            <div class="col-md-4">
+            <!-- Call of Duty Card -->
+            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card game-card">
                     <img src="{{ url_for('static', filename='images/cod.jpg') }}" class="card-img-top" alt="Call of Duty">
                     <div class="card-body">
                         <h5 class="card-title">Call of Duty</h5>
                         <p class="card-text">Engage in intense combat scenarios and lead your team to victory.</p>
-                        <a href="#" class="btn btn-secondary">Play Now</a>
+                        <a href="#" class="btn btn-outline-primary">Play Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!-- Helldivers Card -->
+            <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="card game-card">
                     <img src="{{ url_for('static', filename='images/helldivers.jpg') }}" class="card-img-top" alt="Helldivers">
                     <div class="card-body">
                         <h5 class="card-title">Helldivers</h5>
                         <p class="card-text">Join the elite force and fight for freedom across the galaxy.</p>
-                        <a href="#" class="btn btn-secondary">Play Now</a>
+                        <a href="#" class="btn btn-outline-primary">Play Now</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="latest-news" class="mt-5">
-        <h2 class="mb-4">Latest News</h2>
-        <div class="news-carousel">
-            <!-- Implement a carousel or dynamic news feed -->
-            <div class="card mb-3">
+<!-- Latest News Section with Parallax -->
+<section id="latest-news" class="latest-news-section py-5">
+    <div class="parallax-bg" data-aos="fade-in"></div>
+    <div class="container position-relative">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Latest News</h2>
+        <div class="news-carousel" data-aos="fade-up" data-aos-delay="100">
+            <!-- News Card 1 -->
+            <div class="card news-card mb-4">
+                <img src="{{ url_for('static', filename='images/news1.jpg') }}" class="card-img-top" alt="Fortnite Update">
                 <div class="card-body">
                     <h5 class="card-title">New Update Released for Fortnite</h5>
                     <p class="card-text">Explore the latest features and changes in the newest Fortnite update.</p>
                     <a href="#" class="btn btn-link">Read More</a>
                 </div>
             </div>
-            <!-- Repeat for more news items -->
-        </div>
-    </section>
-
-    <section id="video-content" class="mt-5">
-        <h2 class="mb-4">Featured Streams</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="video-container">
-                    <iframe src="https://www.twitch.tv/embed/yourchannel/chat" 
-                        frameborder="0" allowfullscreen="true" height="315" width="560"></iframe>
+            <!-- News Card 2 -->
+            <div class="card news-card mb-4">
+                <img src="{{ url_for('static', filename='images/news2.jpg') }}" class="card-img-top" alt="Call of Duty Update">
+                <div class="card-body">
+                    <h5 class="card-title">Call of Duty Black Ops 6 Launches</h5>
+                    <p class="card-text">Dive into the newest installment of Call of Duty with enhanced graphics and gameplay.</p>
+                    <a href="#" class="btn btn-link">Read More</a>
                 </div>
             </div>
-            <div class="col-md-6">
+        </div>
+    </div>
+</section>
+
+<!-- Video Content Section with Parallax -->
+<section id="video-content" class="video-content-section py-5">
+    <div class="parallax-bg" data-aos="fade-in"></div>
+    <div class="container position-relative">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Streams</h2>
+        <div class="row">
+            <!-- Twitch Embed -->
+            <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="video-container">
+                    <iframe src="https://player.twitch.tv/?channel=yourchannel&parent=yourdomain.com" 
+                        frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+                </div>
+            </div>
+            <!-- YouTube Embed -->
+            <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/yourvideo" 
-                        frameborder="0" allowfullscreen="true" height="315" width="560"></iframe>
+                        frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
                 </div>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+    <!-- AOS JS for Animations on Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Custom Home JS -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 {% endblock %}
