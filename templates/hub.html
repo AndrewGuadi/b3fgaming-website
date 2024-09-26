@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Hub{% endblock %}
+{% block content %}
+<div class="hub-page">
+    <h1 class="text-center mb-5">Owner's Hub</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line fa-3x mb-3"></i>
+                    <h5 class="card-title">Analytics</h5>
+                    <p class="card-text">View detailed analytics about your website traffic and user engagement.</p>
+                    <a href="#" class="btn btn-primary">View Analytics</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <i class="fas fa-box-open fa-3x mb-3"></i>
+                    <h5 class="card-title">Order Management</h5>
+                    <p class="card-text">Manage and track all merchandise orders seamlessly.</p>
+                    <a href="#" class="btn btn-primary">Manage Orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <i class="fas fa-link fa-3x mb-3"></i>
+                    <h5 class="card-title">Social Links</h5>
+                    <p class="card-text">Add, edit, or remove your social media links with ease.</p>
+                    <a href="{{ url_for('manage_links') }}" class="btn btn-primary">Manage Links</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}

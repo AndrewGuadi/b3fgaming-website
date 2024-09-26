@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Merch{% endblock %}
+{% block content %}
+<div class="merch-page">
+    <h1 class="text-center mb-5">Official b3fgaming Merchandise</h1>
+    <div class="row justify-content-center">
+        <!-- Sweatshirt 1 -->
+        <div class="col-md-4">
+            <div class="card merch-card">
+                <img src="{{ url_for('static', filename='images/sweatshirt1.jpg') }}" class="card-img-top" alt="Sweatshirt 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">b3fgaming Hoodie</h5>
+                    <p class="card-text">$59.99</p>
+                    <a href="#" class="btn btn-primary">Purchase</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sweatshirt 2 -->
+        <div class="col-md-4">
+            <div class="card merch-card">
+                <img src="{{ url_for('static', filename='images/sweatshirt2.jpg') }}" class="card-img-top" alt="Sweatshirt 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">b3fgaming Crewneck</h5>
+                    <p class="card-text">$49.99</p>
+                    <a href="#" class="btn btn-primary">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="btn btn-primary" id="purchase-btn">Purchase</a>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="home-page text-center">
+    <div class="hero-section">
+        <h1 class="display-4 animated-text">Welcome to b3fgaming</h1>
+        <p class="lead">The Ultimate Gaming Hub for Fortnite, Call of Duty, Helldivers, and More!</p>
+        <a href="#featured" class="btn btn-primary btn-lg mt-3">Explore Now</a>
+    </div>
+
+    <section id="featured" class="mt-5">
+        <h2 class="mb-4">Featured Games</h2>
+        <div class="row">
+            <!-- Example Game Card -->
+            <div class="col-md-4">
+                <div class="card game-card">
+                    <img src="{{ url_for('static', filename='images/fortnite.jpg') }}" class="card-img-top" alt="Fortnite">
+                    <div class="card-body">
+                        <h5 class="card-title">Fortnite</h5>
+                        <p class="card-text">Dive into the battle royale frenzy and showcase your skills!</p>
+                        <a href="#" class="btn btn-secondary">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for other games -->
+            <div class="col-md-4">
+                <div class="card game-card">
+                    <img src="{{ url_for('static', filename='images/cod.jpg') }}" class="card-img-top" alt="Call of Duty">
+                    <div class="card-body">
+                        <h5 class="card-title">Call of Duty</h5>
+                        <p class="card-text">Engage in intense combat scenarios and lead your team to victory.</p>
+                        <a href="#" class="btn btn-secondary">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card game-card">
+                    <img src="{{ url_for('static', filename='images/helldivers.jpg') }}" class="card-img-top" alt="Helldivers">
+                    <div class="card-body">
+                        <h5 class="card-title">Helldivers</h5>
+                        <p class="card-text">Join the elite force and fight for freedom across the galaxy.</p>
+                        <a href="#" class="btn btn-secondary">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="latest-news" class="mt-5">
+        <h2 class="mb-4">Latest News</h2>
+        <div class="news-carousel">
+            <!-- Implement a carousel or dynamic news feed -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">New Update Released for Fortnite</h5>
+                    <p class="card-text">Explore the latest features and changes in the newest Fortnite update.</p>
+                    <a href="#" class="btn btn-link">Read More</a>
+                </div>
+            </div>
+            <!-- Repeat for more news items -->
+        </div>
+    </section>
+
+    <section id="video-content" class="mt-5">
+        <h2 class="mb-4">Featured Streams</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="video-container">
+                    <iframe src="https://www.twitch.tv/embed/yourchannel/chat" 
+                        frameborder="0" allowfullscreen="true" height="315" width="560"></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/yourvideo" 
+                        frameborder="0" allowfullscreen="true" height="315" width="560"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
