@@ -1,0 +1,257 @@
+/* home.css */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d0d0d;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-title span {
+    color: #00d1ff;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-section .btn-primary {
+    background: linear-gradient(135deg, #ff4081, #00d1ff);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background: linear-gradient(135deg, #00d1ff, #ff4081);
+}
+
+/* Hero Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 13, 13, 0.7);
+    z-index: 1;
+}
+
+/* Canvas Animation */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Featured Section */
+.featured-section {
+    background: #1e1e1e;
+}
+
+.featured-section .section-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.game-card {
+    background: #2a2a2a;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.game-card img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover img {
+    transform: scale(1.1);
+}
+
+.game-card .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.game-card .card-title {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.game-card .card-text {
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.game-card .btn-outline-primary {
+    background: transparent;
+    border-color: #00d1ff;
+    color: #00d1ff;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.game-card .btn-outline-primary:hover {
+    background: #00d1ff;
+    color: #ffffff;
+}
+
+/* Latest News Section */
+.latest-news-section {
+    position: relative;
+    background: #0d0d0d;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.latest-news-section .section-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/parallax_bg.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.news-card {
+    background: #1e1e1e;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.news-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card .card-body {
+    padding: 20px;
+}
+
+.news-card .card-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.news-card .card-text {
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+.news-card .btn-link {
+    color: #00d1ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news-card .btn-link:hover {
+    color: #ff4081;
+}
+
+/* Video Content Section */
+.video-content-section {
+    position: relative;
+    background: #1e1e1e;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.video-content-section .section-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.video-container iframe:hover {
+    transform: scale(1.05);
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .game-card img,
+    .news-card img {
+        height: 150px;
+    }
+}

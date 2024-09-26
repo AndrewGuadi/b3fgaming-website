@@ -28,7 +28,7 @@
             <!-- Fortnite Card -->
             <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card game-card">
-                    <img src="{{ url_for('static', filename='images/fortnite.jpg') }}" class="card-img-top" alt="Fortnite Battle Royale Game">
+                    <img src="{{ url_for('static', filename='images/fortnite.png') }}" class="card-img-top" alt="Fortnite Battle Royale Game" loading="lazy">
                     <div class="card-body">
                         <h5 class="card-title">Fortnite</h5>
                         <p class="card-text">Dive into the battle royale frenzy and showcase your skills!</p>
@@ -39,7 +39,7 @@
             <!-- Call of Duty Card -->
             <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="card game-card">
-                    <img src="{{ url_for('static', filename='images/cod.jpg') }}" class="card-img-top" alt="Call of Duty">
+                    <img src="{{ url_for('static', filename='images/cod.png') }}" class="card-img-top" alt="Call of Duty" loading="lazy">
                     <div class="card-body">
                         <h5 class="card-title">Call of Duty</h5>
                         <p class="card-text">Engage in intense combat scenarios and lead your team to victory.</p>
@@ -50,7 +50,7 @@
             <!-- Helldivers Card -->
             <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
                 <div class="card game-card">
-                    <img src="{{ url_for('static', filename='images/helldivers.jpg') }}" class="card-img-top" alt="Helldivers">
+                    <img src="{{ url_for('static', filename='images/helldivers.png') }}" class="card-img-top" alt="Helldivers" loading="lazy">
                     <div class="card-body">
                         <h5 class="card-title">Helldivers</h5>
                         <p class="card-text">Join the elite force and fight for freedom across the galaxy.</p>
@@ -70,7 +70,7 @@
         <div class="news-carousel" data-aos="fade-up" data-aos-delay="100">
             <!-- News Card 1 -->
             <div class="card news-card mb-4">
-                <img src="{{ url_for('static', filename='images/news1.jpg') }}" class="card-img-top" alt="Fortnite Update">
+                <img src="{{ url_for('static', filename='images/news1.png') }}" class="card-img-top" alt="Fortnite Update" loading="lazy">
                 <div class="card-body">
                     <h5 class="card-title">New Update Released for Fortnite</h5>
                     <p class="card-text">Explore the latest features and changes in the newest Fortnite update.</p>
@@ -79,7 +79,7 @@
             </div>
             <!-- News Card 2 -->
             <div class="card news-card mb-4">
-                <img src="{{ url_for('static', filename='images/news2.jpg') }}" class="card-img-top" alt="Call of Duty Update">
+                <img src="{{ url_for('static', filename='images/news2.png') }}" class="card-img-top" alt="Call of Duty Update" loading="lazy">
                 <div class="card-body">
                     <h5 class="card-title">Call of Duty Black Ops 6 Launches</h5>
                     <p class="card-text">Dive into the newest installment of Call of Duty with enhanced graphics and gameplay.</p>
@@ -99,16 +99,21 @@
             <!-- Twitch Embed -->
             <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="video-container">
-                    <iframe src="https://player.twitch.tv/?channel=yourchannel&parent=yourdomain.com" 
-                        frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+                    <iframe src="https://player.twitch.tv/?channel=B3fgaming&parent=www.b3fgaming.com&autoplay=true&muted=true" 
+                        frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" title="b3fgaming Live Twitch Stream" loading="lazy"></iframe>
                 </div>
+                <h5 class="video-title mt-2">Live on Twitch</h5>
+                <p class="video-description">Join our live stream on Twitch where we play the latest in Fortnite and Call of Duty.</p>
             </div>
             <!-- YouTube Embed -->
             <div class="col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/yourvideo" 
-                        frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-wrgFMamSZ4?si=i1inGePqT5N8bEJ6" 
+                        title="b3fgaming Latest YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                 </div>
+                <h5 class="video-title mt-2">Latest YouTube Video</h5>
+                <p class="video-description">Watch our latest gameplay strategies and highlights from Helldivers.</p>
             </div>
         </div>
     </div>

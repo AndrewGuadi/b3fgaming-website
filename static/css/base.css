@@ -1,0 +1,219 @@
+/* base.css */
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+a {
+    color: #00d1ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff4081;
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #00d1ff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ff4081 !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff4081 !important;
+}
+
+/* Footer Styles */
+footer {
+    position: relative;
+    width: 100%;
+    /* Ensure footer stays at the bottom */
+    /* If you have content that doesn't fill the viewport, consider using flexbox on body */
+}
+
+footer a {
+    color: #00d1ff;
+}
+
+footer a:hover {
+    color: #ff4081;
+}
+
+/* Utility Classes */
+.text-primary-gradient {
+    background: linear-gradient(135deg, #00d1ff, #ff4081);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00d1ff, #ff4081);
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff4081, #00d1ff);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-primary {
+    border: 2px solid #00d1ff;
+    color: #00d1ff;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background: #00d1ff;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-link {
+    color: #00d1ff;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #ff4081;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    border: 1px solid #00d1ff;
+}
+
+.alert-dismissible .btn-close {
+    background-color: #00d1ff;
+    border: none;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00d1ff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff4081;
+}
+
+/* Utility Classes for Margins and Padding */
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.pt-5 {
+    padding-top: 3rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+/* Container Adjustments */
+.container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Additional Utility Classes */
+.text-center {
+    text-align: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.justify-content-end {
+    justify-content: flex-end !important;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+/* Ensure main content has top padding to avoid navbar overlap */
+main {
+    padding-top: 70px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
