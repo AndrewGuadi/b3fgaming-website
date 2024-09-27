@@ -1,23 +1,40 @@
+<!-- templates/login.html -->
+
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
+
+{% block head %}
+    <!-- Include any additional CSS here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="login-page d-flex justify-content-center align-items-center" style="height: 80vh;">
-    <div class="card p-4" style="width: 100%; max-width: 400px;">
-        <h3 class="text-center mb-4">Owner Login</h3>
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            <div class="mb-3">
-                {{ form.username.label(class="form-label") }}
-                {{ form.username(class="form-control", placeholder="Enter username") }}
-            </div>
-            <div class="mb-3">
-                {{ form.password.label(class="form-label") }}
-                {{ form.password(class="form-control", placeholder="Enter password") }}
-            </div>
-            <div class="d-grid">
-                {{ form.submit(class="btn btn-primary") }}
-            </div>
-        </form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Login</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.username.label(class="form-label") }}
+                    {{ form.username(class="form-control", placeholder="Enter your username") }}
+                    {% for error in form.username.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="mb-3">
+                    {{ form.password.label(class="form-label") }}
+                    {{ form.password(class="form-control", placeholder="Enter your password") }}
+                    {% for error in form.password.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+            
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,29 @@
+b3fgaming/
+├── app.py
+├── models.py
+├── requirements.txt
+├── static/
+│   ├── css/
+│   │   ├── base.css
+│   │   ├── home.css
+│   │   ├── manage_links.css
+│   │   └── ... (other CSS files)
+│   ├── js/
+│   │   ├── base.js
+│   │   ├── home.js
+│   │   ├── manage_links.js
+│   │   └── ... (other JS files)
+│   ├── images/
+│   │   ├── (other PNG images)
+│   │   └── social_icons/
+│   │       ├── (if using image icons)
+│   └── ... (other static files)
+├── templates/
+│   ├── base.html
+│   ├── home.html
+│   ├── manage_links.html
+│   ├── edit_social_link.html
+│   └── ... (other HTML templates)
+├── migrations/
+│   └── ... (if using Flask-Migrate)
+└── README.md

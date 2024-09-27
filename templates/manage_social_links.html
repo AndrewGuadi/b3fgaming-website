@@ -1,0 +1,97 @@
+<!-- templates/manage_social_links.html -->
+
+{% extends "base.html" %}
+{% block title %}Manage Social Links{% endblock %}
+
+{% block content %}
+<div class="manage-social-links-page container mt-5">
+    <h2 class="text-center mb-4">Manage Social Links</h2>
+
+    <!-- Form to Add New Social Link -->
+    <div class="add-social-link mb-5">
+        <h4>Add New Social Link</h4>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.platform_id.label(class="form-label") }}
+                {{ form.platform_id(class="form-select", id="platform_id") }}
+                {% for error in form.platform_id.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3" id="custom_platform_field" style="display: none;">
+                {{ form.platform_custom.label(class="form-label") }}
+                {{ form.platform_custom(class="form-control", placeholder="Enter custom platform name if applicable") }}
+                {% for error in form.platform_custom.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.url.label(class="form-label") }}
+                {{ form.url(class="form-control", placeholder="Enter the URL") }}
+                {% for error in form.url.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Add Social Link</button>
+        </form>
+    </div>
+
+    <!-- Existing Social Links -->
+    <div class="existing-social-links">
+        <h4>Your Social Links</h4>
+        {% for link in social_links %}
+            <div class="card mb-3">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        {% if link.platform_id %}
+                            <i class="{{ link.platform_obj.icon_class }}"></i> {{ link.platform_obj.name }}
+                        {% else %}
+                            <i class="fas fa-link"></i> {{ link.platform_custom }}
+                        {% endif %}
+                        - <a href="{{ link.url }}" target="_blank">{{ link.url }}</a>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('edit_social_link', link_id=link.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ url_for('delete_social_link', link_id=link.id) }}" method="POST" style="display:inline;">
+                            {{ form.csrf_token }}
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this link?');">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>You have no social links. Add one above!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const platformSelect = document.getElementById('platform_id');
+        const customField = document.getElementById('custom_platform_field');
+
+        function toggleCustomField() {
+            if (platformSelect.value === '0') {  // '0' corresponds to 'Custom'
+                customField.style.display = 'block';
+            } else {
+                customField.style.display = 'none';
+                document.getElementById('platform_custom').value = '';  // Clear input
+            }
+        }
+
+        // Initial toggle based on current selection
+        toggleCustomField();
+
+        // Add event listener for changes
+        platformSelect.addEventListener('change', toggleCustomField);
+    });
+</script>
+{% endblock %}

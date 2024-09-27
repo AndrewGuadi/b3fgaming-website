@@ -1,0 +1,42 @@
+<!-- templates/edit_social_link.html -->
+
+{% extends "base.html" %}
+{% block title %}Edit Social Link{% endblock %}
+
+{% block content %}
+<div class="edit-social-link-page container mt-5">
+    <h2 class="text-center mb-4">Edit Social Link</h2>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.platform_id.label(class="form-label") }}
+            {{ form.platform_id(class="form-select") }}
+            {% for error in form.platform_id.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.platform_custom.label(class="form-label") }}
+            {{ form.platform_custom(class="form-control", placeholder="Enter custom platform name if applicable") }}
+            {% for error in form.platform_custom.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.url.label(class="form-label") }}
+            {{ form.url(class="form-control", placeholder="Enter the URL") }}
+            {% for error in form.url.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-success">Update Social Link</button>
+        <a href="{{ url_for('manage_social_links') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
+{% block head %}
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
