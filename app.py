@@ -1,6 +1,6 @@
 # app.py
 
-from flask import Flask, render_template, redirect, url_for, request, flash, abort
+from flask import Flask, render_template, redirect, url_for, request, flash, abort, Response
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User, Platform, SocialLink
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -98,7 +98,6 @@ def social_links():
     Social Links public page. Accessible to everyone.
     """
     social_links = SocialLink.query.all()
-    print(social_links)
     return render_template('social_links.html', social_links=social_links)
 
 
@@ -280,7 +279,22 @@ def logout():
     flash('You have been logged out.', 'info')
     return redirect(url_for('home'))
 
-# Removed the /register route to disable user registration
+
+# Add a new route for the sitemap
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap():
+    """
+    Dynamically generate a sitemap.xml file.
+    """
+    static_urls = [
+        {"loc": url_for('home', _external=True), "priority": '1.0'},
+        {"loc": url_for('social_links', _external=True), "priority": '0.8'},
+        {"loc": url_for('merch', _external=True), "priority": '0.7'},
+    ]
+
+    sitemap_xml = render_template('sitemap_template.xml', static_urls=static_urls)
+    return Response(sitemap_xml, mimetype='application/xml')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
