@@ -98,6 +98,7 @@ def social_links():
     Social Links public page. Accessible to everyone.
     """
     social_links = SocialLink.query.all()
+    print(social_links)
     return render_template('social_links.html', social_links=social_links)
 
 
