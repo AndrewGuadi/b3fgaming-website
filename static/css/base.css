@@ -30,6 +30,8 @@ a:hover {
     font-size: 1.5rem;
     color: #00d1ff !important;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-brand:hover {
@@ -45,6 +47,18 @@ a:hover {
 
 .nav-link:hover {
     color: #ff4081 !important;
+}
+
+/* Logo Image Styling */
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: rotate(15deg);
 }
 
 /* Footer Styles */
