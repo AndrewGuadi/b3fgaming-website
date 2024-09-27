@@ -3,29 +3,42 @@
 {% extends "base.html" %}
 {% block title %}Social Links{% endblock %}
 
+{% block head %}
+
+<!-- Page-Specific CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/social_links.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="social-links-page text-center">
-    <div class="profile-section mb-5">
-        <img src="{{ url_for('static', filename='images/profile.png') }}" class="rounded-circle profile-image" alt="Profile Picture">
-        <h2>GamerTag#1234</h2>
-        <p>Your tagline or bio goes here.</p>
+<div class="social-links-page d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <!-- Animated Background -->
+    <div class="animated-background"></div>
+
+    <!-- Profile Section -->
+    <div class="profile-section mb-5 text-center">
+        <div class="profile-image-container mb-3">
+            <img src="{{ url_for('static', filename='images/profile.png') }}" class="rounded-circle profile-image" alt="Profile Picture">
+        </div>
+        <h2 class="profile-name">GamerTag#1234</h2>
+        <p class="profile-bio">Your tagline or bio goes here.</p>
     </div>
 
-    <div class="links-section">
-        <div class="container">
+    <!-- Links Section -->
+    <div class="links-section w-100 px-3">
+        <div class="links-container">
             {% for link in social_links %}
                 <div class="link-container mb-3">
                     {% if link.platform_id %}
-                        <a href="{{ link.url }}" target="_blank" class="btn btn-outline-primary btn-block">
+                        <a href="{{ link.url }}" target="_blank" class="btn btn-link custom-btn btn-block">
                             <i class="{{ link.platform_obj.icon_class }}"></i> {{ link.platform_obj.name }}
                         </a>
                     {% else %}
-                        <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-block">
+                        <a href="{{ link.url }}" target="_blank" class="btn btn-link custom-btn btn-block">
                             <i class="fas fa-link"></i> {{ link.platform_custom }}
                         </a>
                     {% endif %}
                     <button class="btn btn-sm btn-secondary share-btn" data-link="{{ link.url }}">
-                        Share
+                        <i class="fas fa-share-alt"></i> Share
                     </button>
                 </div>
             {% endfor %}
@@ -34,18 +47,19 @@
 </div>
 {% endblock %}
 
-{% block head %}
-<!-- Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% endblock %}
-
 {% block scripts %}
 <script>
+    // Share Button Functionality
     document.querySelectorAll('.share-btn').forEach(button => {
         button.addEventListener('click', () => {
             const link = button.getAttribute('data-link');
             navigator.clipboard.writeText(link).then(() => {
-                alert('Link copied to clipboard!');
+                // Visual Feedback: Change button text/icon
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                // Revert back after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-share-alt"></i> Share';
+                }, 2000);
             }).catch(err => {
                 alert('Failed to copy the link.');
             });
