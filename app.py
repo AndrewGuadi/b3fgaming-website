@@ -283,3 +283,67 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+def create_default_user():
+    """
+    Create a default user named 'bout3fiddy' with password 'cudderfish123' if it doesn't exist.
+    """
+    default_username = 'bout3fiddy'
+    default_password = 'cudderfish123'
+    user = User.query.filter_by(username=default_username).first()
+    if not user:
+        hashed_password = generate_password_hash(default_password)
+        new_user = User(username=default_username, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+        print(f"Default user '{default_username}' created with password '{default_password}'.")
+
+def populate_default_social_links():
+    """
+    Populate the default user with initial social links: YouTube, Twitch, and Instagram.
+    """
+    default_username = 'bout3fiddy'
+    user = User.query.filter_by(username=default_username).first()
+    if not user:
+        print(f"User '{default_username}' does not exist. Cannot populate social links.")
+        return
+
+    # Define the initial social links
+    initial_links = [
+        {
+            'platform_name': 'YouTube',
+            'url': 'https://www.youtube.com/c/bout3fiddy'
+        },
+        {
+            'platform_name': 'Twitch',
+            'url': 'https://www.twitch.tv/bout3fiddy'
+        },
+        {
+            'platform_name': 'Instagram',
+            'url': 'https://www.instagram.com/bout3fiddy'
+        }
+    ]
+
+    for link in initial_links:
+        platform = Platform.query.filter_by(name=link['platform_name']).first()
+        if not platform:
+            print(f"Platform '{link['platform_name']}' does not exist. Skipping this link.")
+            continue
+
+        # Check if the social link already exists for the user
+        existing_link = SocialLink.query.filter_by(user_id=user.id, platform_id=platform.id).first()
+        if existing_link:
+            print(f"Social link for platform '{platform.name}' already exists for user '{user.username}'. Skipping.")
+            continue
+
+        # Create and add the new social link
+        new_social_link = SocialLink(
+            platform_id=platform.id,
+            platform_custom=None,
+            url=link['url'],
+            user_id=user.id
+        )
+        db.session.add(new_social_link)
+        print(f"Added social link for platform '{platform.name}' to user '{user.username}'.")
+
+    db.session.commit()
+    print("Default social links populated successfully.")
